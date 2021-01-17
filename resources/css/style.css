@@ -2,14 +2,14 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Rboto", sans-serif;
+  font-family: "Roboto", sans-serif;
   transition: 250ms ease-in-out;
 }
 
 html {
-  font-size: 16px;
+  font-size: 12px;
   scroll-behavior: smooth;
-  max-width: 100vw;
+  width: 100vw;
 }
 
 ::-webkit-scrollbar {
@@ -17,8 +17,7 @@ html {
 }
 
 body {
-  width: 30%;
-  margin: 0 auto;
+  width: 100%;
 }
 
 a {
@@ -28,57 +27,280 @@ a {
 }
 
 header {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
 }
+header .arrow-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-h2 {
+.fa-arrow-left {
+  font-size: 1.5rem;
+  color: #000000;
+}
+
+.main-page h2 {
   margin-bottom: 1rem;
+}
+
+.searchSection {
+  text-align: center;
+}
+.searchSection .searchBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-image: linear-gradient(to bottom, #A6A6A6, #D9D9D9 10%);
+}
+.searchSection .searchBar input {
+  border: none;
+  background-color: #D9D9D9;
+  text-align: center;
+}
+.searchSection .presentation {
+  padding: 3rem 2rem;
+  background-color: #F2F2F2;
+}
+.searchSection .presentation p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+.searchSection .presentation button {
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  border-radius: 3.5rem;
+  color: #FFFFFF;
+  border: none;
+  background-image: linear-gradient(to top, #9356DC, #FF79DA);
+  box-shadow: 0 0.25rem 1rem #b2b2b2;
+}
+
+input::placeholder {
+  color: #000000;
+  font-weight: 500;
+}
+
+.stepsSection {
+  padding: 3rem 1rem 3rem 1.75rem;
+}
+.stepsSection h2 {
+  margin-left: -0.75rem;
+}
+.stepsSection .step-information {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+.stepsSection .step-information div {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background-color: #F2F2F2;
+  box-shadow: 0 0.25rem 1rem #cccccc;
+  display: flex;
+  align-items: center;
+}
+.stepsSection .step-information div .step-number {
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 50%;
+  left: -0.75rem;
+  transform: translate(0, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #9356DC;
+  color: white;
+  font-size: 0.75rem;
+}
+.stepsSection .step-information div i {
+  color: #808080;
+  font-size: 1.1rem;
+  padding: 0 1rem;
+}
+.stepsSection .step-information div p {
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0 1rem;
+}
+
+.step-information > div:hover {
+  background-color: rgba(147, 86, 220, 0.15);
+}
+
+.step-information > div:hover i {
+  color: #9356DC;
+}
+
+.menu h2 {
+  position: relative;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  margin: 1rem 0rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 1.25rem;
+  display: inline-block;
+}
+
+.menu h2:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 2.5rem;
+  height: 0.2rem;
+  background-color: #99E2D0;
 }
 
 .restaurantsSection {
   padding: 2.5rem 1rem;
   background-color: #F2F2F2;
 }
-
-.restaurantsList {
+.restaurantsSection .restaurantsList {
   display: grid;
   grid-template: repeat(4, 1fr)/1fr;
   grid-gap: 1rem;
+  padding-bottom: 1rem;
 }
-
-.restaurantFrame {
+.restaurantsSection .restaurantsList .restaurantFrame {
   border-radius: 1.25rem;
-  box-shadow: 0 0 1rem #d9d9d9;
+  box-shadow: 0 0.25rem 1rem #cccccc;
   background-color: white;
+  width: 100%;
   min-height: 15rem;
 }
-
-.restaurantFrame a, .restaurantFrame figure {
+.restaurantsSection .restaurantsList .restaurantFrame a {
+  position: relative;
   width: 100%;
   height: 100%;
+  display: block;
 }
-
-.restaurantFrame figure {
+.restaurantsSection .restaurantsList .restaurantFrame a .new {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 20;
+  background-color: #99E2D0;
+  padding: 0.5rem 0.75rem;
+}
+.restaurantsSection .restaurantsList .restaurantFrame a figure {
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-rows: 70% 30%;
 }
-
-.restaurantFrame img {
+.restaurantsSection .restaurantsList .restaurantFrame a figure img {
   object-fit: cover;
   width: 100%;
   height: 100%;
   border-radius: 1.25rem 1.25rem 0 0;
 }
-
-.restaurantFrame figcaption {
-  padding: 0.5rem 1rem;
+.restaurantsSection .restaurantsList .restaurantFrame a figure figcaption {
+  padding: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.restaurantsSection .restaurantsList .restaurantFrame a figure figcaption div p {
+  margin-top: 0.25rem;
+}
+
+.fa-heart {
+  font-size: 1.5rem;
+}
+
+.picture-section {
+  width: 100%;
+  min-height: 20rem;
+  z-index: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.first-picture {
+  background-image: url("../../resources/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
+}
+
+.second-picture {
+  background-image: url("../../resources/images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg");
+}
+
+.third-picture {
+  background-image: url("../../resources/images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
+}
+
+.fourth-picture {
+  background-image: url("../../resources/images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");
+}
+
+.menu-section {
+  z-index: 10;
+  margin-top: -2.5rem;
+  border-radius: 2.5rem 2.5rem 0 0;
+  padding: 2rem 1rem;
+  background-color: #F2F2F2;
+}
+.menu-section .heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.menu-section .heading h1 {
+  font-family: "Shrikhand", display;
+  letter-spacing: 0.05rem;
+}
+.menu-section .heading .fa-heart {
+  padding-right: 1rem;
+}
+
+.choice h2 {
+  font-size: 1.1rem;
+}
+
+.command-button {
+  min-height: 10rem;
+  display: flex;
+  justify-content: center;
   align-items: center;
+}
+.command-button button {
+  padding: 1rem 2.5rem;
+  border-radius: 3.5rem;
+  color: #FFFFFF;
+  border: none;
+  background-image: linear-gradient(to top, #9356DC, #FF79DA);
+  box-shadow: 0 0.25rem 1rem #b2b2b2;
+}
+
+.list {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+.list div {
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.25rem 1rem #cccccc;
+}
+.list div p {
+  margin-top: 0.25rem;
 }
 
 footer {
@@ -88,15 +310,23 @@ footer {
   background-color: #262626;
   color: white;
 }
-
 footer h3 {
   font-family: "Shrikhand", cursive;
   font-weight: 300;
+  margin-bottom: 1rem;
+}
+footer a {
+  line-height: 1.75rem;
+}
+footer a i {
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
 }
 
 .logo-link {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */

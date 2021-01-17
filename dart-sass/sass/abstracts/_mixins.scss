@@ -1,0 +1,7 @@
+@mixin btn-style {
+    border-radius: 3.5rem;
+    color: #FFFFFF;
+    border: none;
+    background-image: linear-gradient(to top, $primary-color, $secondary-color);
+    box-shadow: 0 0.25rem 1rem darken($grey-background, 25%);
+}

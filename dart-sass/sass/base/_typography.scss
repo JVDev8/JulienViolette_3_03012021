@@ -1,0 +1,14 @@
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+input::placeholder {
+    color: $black-color;
+    font-weight: 500;
+}
+
+header img {
+    height: 2rem;
+}

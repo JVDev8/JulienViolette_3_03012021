@@ -27,6 +27,7 @@
     color: #FFFFFF;
     border: none;
     cursor: pointer;
+    font-size: 1rem;
     background-image: linear-gradient(-10deg, $primary-color, $secondary-color);
     box-shadow: 0 0.25rem 1rem darken($grey, 35%);
 }

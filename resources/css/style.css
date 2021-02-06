@@ -12,6 +12,11 @@ html {
   scroll-behavior: smooth;
   width: 100vw;
 }
+@media (min-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+}
 
 ::-webkit-scrollbar {
   display: none;
@@ -19,6 +24,17 @@ html {
 
 body {
   width: 100%;
+}
+
+.loader {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #99E2D0;
+  animation: loader 3s forwards;
 }
 
 a {
@@ -39,8 +55,8 @@ header img {
 header {
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   padding: 1rem;
 }
 header .arrow-wrapper {
@@ -50,16 +66,28 @@ header .arrow-wrapper {
   width: 10%;
   height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+}
+
+.list {
+  display: grid;
+  grid-template: repeat(3, 1fr)/1fr;
+  grid-gap: 1rem;
+  padding-bottom: 1rem;
+}
+@media (min-width: 1000px) {
+  .list {
+    grid-template: 1fr/repeat(3, 1fr);
+  }
 }
 
 footer {
-  padding: 1rem;
+  padding: 1.5rem 1.5rem 1.5rem 2rem;
   display: flex;
   flex-direction: column;
   background-color: #262626;
-  color: white;
+  color: #FFFFFF;
 }
 footer h3 {
   font-family: "Shrikhand", cursive;
@@ -74,17 +102,65 @@ footer a i {
   font-size: 0.8rem;
 }
 
+.logo-link {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
 .searchBar {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  background-image: linear-gradient(to bottom, #A6A6A6, #D9D9D9 10%);
+  background-image: linear-gradient(to bottom, #999999, #cccccc 10%);
 }
 .searchBar input {
   border: none;
-  background-color: #D9D9D9;
+  background-color: #cccccc;
   text-align: center;
+}
+@media (min-width: 600px) {
+  .searchBar input {
+    font-size: 1.25rem;
+  }
+}
+
+.btn {
+  position: relative;
+  z-index: 1;
+  border-radius: 3.5rem;
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  background-image: linear-gradient(-10deg, #9356DC, #FF79DA);
+  box-shadow: 0 0.25rem 1rem #999999;
+}
+.btn:hover::after {
+  opacity: 1;
+}
+.btn::after {
+  content: "";
+  border-radius: 3.5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(-10deg, #a16be0, #ff93e1);
+  box-shadow: 0 0.25rem 1rem #999999;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 250ms ease-in-out;
+}
+
+.explore-btn {
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+}
+
+.command-btn {
+  padding: 1rem 2.5rem;
 }
 
 .fa-arrow-left {
@@ -92,29 +168,187 @@ footer a i {
   color: #000000;
 }
 
-.fa-heart {
+.first-heart {
+  cursor: pointer;
+  opacity: 1;
+  position: relative;
   font-size: 1.5rem;
+  color: black;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.05rem;
+  -webkit-text-stroke-color: black;
+}
+.first-heart:hover {
+  animation: gradient 1000ms linear forwards;
 }
 
 .checkbox {
   position: absolute;
-  z-index: 10;
-  width: 0;
-  height: 100%;
   top: 0;
   right: 0;
+  width: 4rem;
+  height: 100%;
   overflow-x: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #99E2D0;
   border-radius: 0 1rem 1rem 0;
+  transform: scaleX(0);
+  transform-origin: right;
 }
 .checkbox i {
   font-size: 1.25rem;
   color: white;
 }
 
+.menu-frame {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  background-color: #FFFFFF;
+  border-radius: 1rem;
+  padding: 0.75rem;
+  box-shadow: 0 0.25rem 0.75rem #d9d9d9;
+}
+.menu-frame .menu-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  flex-grow: 2;
+}
+.menu-frame .menu-information p {
+  margin-top: 0.25rem;
+}
+.menu-frame:hover .checkbox {
+  transform: scaleX(1);
+}
+.menu-frame:hover .checkbox i {
+  transform: rotate(360deg);
+}
+.menu-frame:hover .menu-information {
+  padding-right: 4rem;
+}
+
+@keyframes loader {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    z-index: 0;
+  }
+}
+@keyframes gradient {
+  0% {
+    background: linear-gradient(to top, #F2F2F2 100%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  5% {
+    background: linear-gradient(to top, #F2F2F2 95%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  10% {
+    background: linear-gradient(to top, #F2F2F2 90%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  15% {
+    background: linear-gradient(to top, #F2F2F2 85%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  20% {
+    background: linear-gradient(to top, #F2F2F2 80%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  25% {
+    background: linear-gradient(to top, #F2F2F2 75%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  30% {
+    background: linear-gradient(to top, #F2F2F2 70%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  35% {
+    background: linear-gradient(to top, #F2F2F2 65%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  40% {
+    background: linear-gradient(to top, #F2F2F2 60%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  45% {
+    background: linear-gradient(to top, #F2F2F2 55%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  50% {
+    background: linear-gradient(to top, #F2F2F2 50%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  55% {
+    background: linear-gradient(to top, #F2F2F2 45%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  60% {
+    background: linear-gradient(to top, #F2F2F2 40%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  65% {
+    background: linear-gradient(to top, #F2F2F2 35%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  70% {
+    background: linear-gradient(to top, #F2F2F2 30%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  75% {
+    background: linear-gradient(to top, #F2F2F2 25%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  80% {
+    background: linear-gradient(to top, #F2F2F2 20%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  85% {
+    background: linear-gradient(to top, #F2F2F2 15%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  90% {
+    background: linear-gradient(to top, #F2F2F2 10%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  95% {
+    background: linear-gradient(to top, #F2F2F2 5%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  100% {
+    background: linear-gradient(to top, #F2F2F2 0%, #FF79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 0px;
+  }
+}
 .main-page h2 {
   margin-bottom: 1rem;
 }
@@ -123,41 +357,37 @@ footer a i {
   text-align: center;
 }
 .searchSection .presentation {
-  padding: 3rem 2rem;
+  padding: 3.5rem 1.5rem;
   background-color: #F2F2F2;
 }
 .searchSection .presentation p {
   font-size: 1.1rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0 1.5rem 0;
   font-weight: 300;
-}
-.searchSection .presentation button {
-  padding: 1rem 1.5rem;
-  margin: 1rem 0;
-  border-radius: 3.5rem;
-  color: #FFFFFF;
-  border: none;
-  background-image: linear-gradient(to top, #9356DC, #FF79DA);
-  box-shadow: 0 0.25rem 1rem #b2b2b2;
 }
 
 .stepsSection {
-  padding: 3rem 1rem 3rem 1.75rem;
+  padding: 3.5rem 1.5rem 3.5rem 2.25rem;
 }
 .stepsSection h2 {
-  margin-left: -0.75rem;
+  margin-left: -0.1125rem;
 }
 .stepsSection .step-information {
   display: grid;
+  grid-gap: 1.5rem;
   grid-template: repeat(3, 1fr)/1fr;
-  grid-gap: 1rem;
+}
+@media (min-width: 1000px) {
+  .stepsSection .step-information {
+    grid-template: 1fr/repeat(3, 1fr);
+  }
 }
 .stepsSection .step-information div {
   position: relative;
   padding: 1.5rem;
   border-radius: 1rem;
   background-color: #F2F2F2;
-  box-shadow: 0 0.25rem 1rem #cccccc;
+  box-shadow: 0 0.25rem 0.75rem #d9d9d9;
   display: flex;
   align-items: center;
 }
@@ -170,14 +400,14 @@ footer a i {
   left: -0.75rem;
   transform: translate(0, -50%);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   background-color: #9356DC;
-  color: white;
+  color: #FFFFFF;
   font-size: 0.75rem;
 }
 .stepsSection .step-information div i {
-  color: #808080;
+  color: #8c8c8c;
   font-size: 1.1rem;
   padding: 0 1rem;
 }
@@ -190,7 +420,6 @@ footer a i {
 .step-information > div:hover {
   background-color: rgba(147, 86, 220, 0.15);
 }
-
 .step-information > div:hover i {
   color: #9356DC;
 }
@@ -205,8 +434,7 @@ footer a i {
   font-size: 1.25rem;
   display: inline-block;
 }
-
-.menu h2:after {
+.menu h2::after {
   content: "";
   position: absolute;
   left: 0;
@@ -217,21 +445,26 @@ footer a i {
 }
 
 .restaurantsSection {
-  padding: 2.5rem 1rem;
+  padding: 3.5rem 1.5rem;
   background-color: #F2F2F2;
 }
 .restaurantsSection .restaurantsList {
   display: grid;
+  grid-gap: 1.5rem;
   grid-template: repeat(4, 1fr)/1fr;
-  grid-gap: 1rem;
   padding-bottom: 1rem;
+}
+@media (min-width: 900px) {
+  .restaurantsSection .restaurantsList {
+    grid-template: repeat(2, 1fr)/repeat(2, 1fr);
+  }
 }
 .restaurantsSection .restaurantsList .restaurantFrame {
   border-radius: 1.25rem;
-  box-shadow: 0 0.25rem 1rem #cccccc;
-  background-color: white;
+  box-shadow: 0 0.25rem 0.75rem #d9d9d9;
+  background-color: #FFFFFF;
   width: 100%;
-  min-height: 15rem;
+  height: 15rem;
 }
 .restaurantsSection .restaurantsList .restaurantFrame a {
   position: relative;
@@ -243,7 +476,6 @@ footer a i {
   position: absolute;
   top: 0.75rem;
   right: 0.75rem;
-  z-index: 20;
   background-color: #99E2D0;
   padding: 0.5rem 0.75rem;
 }
@@ -277,6 +509,11 @@ footer a i {
   background-size: cover;
   background-repeat: no-repeat;
 }
+@media (min-width: 1000px) {
+  .picture-section {
+    min-height: 30rem;
+  }
+}
 
 .first-picture {
   background-image: url("../../resources/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
@@ -298,7 +535,7 @@ footer a i {
   z-index: 10;
   margin-top: -2.5rem;
   border-radius: 2.5rem 2.5rem 0 0;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1rem;
   background-color: #F2F2F2;
 }
 .menu-section .heading {
@@ -321,69 +558,14 @@ footer a i {
 .command-button {
   min-height: 8rem;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   padding-bottom: 1rem;
-}
-.command-button button {
-  padding: 1rem 2.5rem;
-  border-radius: 3.5rem;
-  color: #FFFFFF;
-  border: none;
-  background-image: linear-gradient(to top, #9356DC, #FF79DA);
-  box-shadow: 0 0.25rem 1rem #b2b2b2;
-}
-
-.list {
-  display: grid;
-  grid-template: repeat(3, 1fr)/1fr;
-  grid-gap: 1rem;
-  padding-bottom: 1rem;
-}
-
-.list > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  background-color: white;
-  padding: 0.75rem;
-  border-radius: 1rem;
-  box-shadow: 0 0.25rem 1rem #cccccc;
-}
-.list > div p {
-  margin-top: 0.25rem;
 }
 
 .flex {
   display: flex;
   justify-content: space-between;
-  padding-right: 0.75rem;
-}
-
-.list > div:hover .checkbox {
-  width: 4rem;
-}
-
-.logo-link {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-@media only screen and (min-width: 600px) {
-  html {
-    font-size: 16px;
-  }
-}
-@media only screen and (min-width: 1000px) {
-  .step-information {
-    grid-template: 1fr/repeat(3, 1fr);
-  }
-
-  .list {
-    grid-template: 1fr/repeat(3, 1fr);
-  }
 }
 
 /*# sourceMappingURL=style.css.map */

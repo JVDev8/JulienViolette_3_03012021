@@ -1,9 +1,9 @@
 footer {
-    padding: 1rem;
+    @include padding-footer;
     display: flex;
     flex-direction: column;
-    background-color: rgb(38, 38, 38);
-    color: white;
+    background-color: $footer-background;
+    color: $white-color;
     h3 {
         font-family: 'Shrikhand', cursive;
         font-weight: 300;
@@ -16,4 +16,9 @@ footer {
             font-size: 0.8rem;
         }
     }
+}
+
+.logo-link {
+    @include flex-center;
+    flex-direction: row;
 }

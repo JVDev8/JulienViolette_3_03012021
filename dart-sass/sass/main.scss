@@ -12,6 +12,9 @@
 @import "./layout/form";
 
 @import "./components/buttons";
+@import "./components/frames";
+
+@import "./animations/animations";
 
 .main-page {
     h2 {
@@ -22,38 +25,34 @@
 .searchSection {
     text-align: center;
     .presentation {
-        padding: 3rem 2rem;
+        @include padding-section;
         background-color: $grey-background;
         p {
             font-size: 1.1rem;
-            margin-bottom: 1rem;
+            margin: 1rem 0 1.5rem 0;
             font-weight: 300;
-        }
-        button {
-            padding: 1rem 1.5rem;
-            margin: 1rem 0;
-            @include btn-style;
         }
     }
 }
 
 .stepsSection {
-    padding: 3rem 1rem 3rem 1.75rem;
+    padding: 3.5rem 1.5rem 3.5rem 2.25rem;
     h2 {
-        margin-left: -0.75rem;
+        margin-left: -0.1125rem;
     }
     .step-information {
-        display: grid;
+        @include grid;
         grid-template: repeat(3, 1fr) / 1fr;
-        grid-gap: 1rem;
+        @media (min-width: 1000px) {
+            grid-template: 1fr / repeat(3, 1fr);
+        }
         div {
             position: relative;
             padding: 1.5rem;
             border-radius: 1rem;
             background-color: $grey-background;
-            box-shadow: 0 0.25rem 1rem darken($grey-background, 15%);
-            display: flex;
-            align-items: center;
+            @include box-shadow;
+            @include flex-center;
             .step-number {
                 border-radius: 50%;
                 width: 1.5rem;
@@ -62,15 +61,14 @@
                 top: 50%;
                 left: -0.75rem;
                 transform: translate(0, -50%);
-                display: flex;
+                @include flex-center;
                 justify-content: center;
-                align-items: center;
                 background-color: $primary-color;
-                color: white;
+                color: $white-color;
                 font-size: 0.75rem;
             }
             i {
-                color: $dark-grey;
+                color: darken($grey-background, 40%);
                 font-size: 1.1rem;
                 padding: 0 1rem;
             }
@@ -85,10 +83,9 @@
 
 .step-information > div:hover {
     background-color: rgba(147, 86, 220, 0.15);
-}
-
-.step-information > div:hover i {
-    color: $primary-color;
+    i {
+        color: $primary-color;
+    }
 }
 
 .menu h2 {
@@ -100,32 +97,33 @@
     font-weight: 300;
     font-size: 1.25rem;
     display: inline-block;
-}
-
-.menu h2:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 2.5rem;
-    height: 0.2rem;
-    background-color: $third-color;
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 2.5rem;
+        height: 0.2rem;
+        background-color: $third-color;
+    }
 }
 
 .restaurantsSection {
-    padding: 2.5rem 1rem;
+    @include padding-section;
     background-color: $grey-background;
     .restaurantsList {
-        display: grid;
+        @include grid;
         grid-template: repeat(4, 1fr) / 1fr;
-        grid-gap: 1rem;
         padding-bottom: 1rem;
+        @media (min-width: 900px) {
+            grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+        }
         .restaurantFrame {
             border-radius: 1.25rem;
-            box-shadow: 0 0.25rem 1rem darken($grey-background, 15%);
-            background-color: white;
+            @include box-shadow;
+            background-color: $white-color;
             width: 100%;
-            min-height: 15rem;
+            height: 15rem;
             a {
                 position: relative;
                 width: 100%;
@@ -135,7 +133,6 @@
                     position: absolute;
                     top: 0.75rem;
                     right: 0.75rem;
-                    z-index: 20;
                     background-color: $third-color;
                     padding: 0.5rem 0.75rem;
                 }
@@ -174,6 +171,9 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    @media (min-width: 1000px) {
+        min-height: 30rem;
+    }
 }
 
 .first-picture {
@@ -196,8 +196,8 @@
     z-index: 10;
     margin-top: -2.5rem;
     border-radius: 2.5rem 2.5rem 0 0;
-    padding: 2rem 1rem;
-    background-color: #F2F2F2;
+    padding: 2.5rem 1rem;
+    background-color: $grey-background;
     .heading {
         display: flex;
         flex-direction: row;
@@ -220,66 +220,12 @@
 
 .command-button {
     min-height: 8rem;
-    display: flex;
+    @include flex-center;
     justify-content: center;
-    align-items: center;
     padding-bottom: 1rem;
-    button {
-        padding: 1rem 2.5rem;
-        @include btn-style;
-    }
-}
-
-.list {
-    display: grid;
-    grid-template: repeat(3, 1fr) / 1fr;
-    grid-gap: 1rem;
-    padding-bottom: 1rem;
-}
-
-.list > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    background-color: white;
-    padding: 0.75rem;
-    border-radius: 1rem;
-    box-shadow: 0 0.25rem 1rem darken($grey-background, 15%);
-    p {
-        margin-top: 0.25rem;
-    }
 }
 
 .flex {
     display: flex;
     justify-content: space-between;
-    padding-right: 0.75rem;
-}
-
-.list > div:hover {
-    .checkbox {
-        width: 4rem;
-    }
-}
-
-.logo-link {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-@media only screen and (min-width: 600px) {
-    html {
-        font-size: 16px;
-    }
-}
-
-@media only screen and (min-width: 1000px) {
-    .step-information {
-        grid-template: 1fr / repeat(3, 1fr);
-    }
-    .list {
-        grid-template: 1fr / repeat(3, 1fr);
-    }
 }

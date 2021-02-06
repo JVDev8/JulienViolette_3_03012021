@@ -3,10 +3,13 @@
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    background-image: linear-gradient(to bottom, #A6A6A6, $medium-grey 10%);
+    background-image: linear-gradient(to bottom, darken($grey-background, 35%), darken($grey-background, 15%) 10%);
     input {
         border: none;
-        background-color: $medium-grey;
+        background-color: darken($grey-background, 15%);
         text-align: center;
+        @media (min-width: 600px) {
+            font-size: 1.25rem;
+        }
     }
 }

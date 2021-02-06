@@ -1,8 +1,7 @@
 header {
     position: relative;
-    display: flex;
+    @include flex-center;
     justify-content: center;
-    align-items: center;
     padding: 1rem;
     .arrow-wrapper {
         position: absolute;
@@ -10,8 +9,7 @@ header {
         left: 0;
         width: 10%;
         height: 100%;
-        display: flex;
+        @include flex-center;
         justify-content: center;
-        align-items: center;
     }
 }

@@ -1,0 +1,118 @@
+@keyframes loader {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        z-index: 0;
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background: linear-gradient(to top, #F2F2F2 100%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    5% {
+        background: linear-gradient(to top, #F2F2F2 95%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    10% {
+        background: linear-gradient(to top, #F2F2F2 90%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    15% {
+        background: linear-gradient(to top, #F2F2F2 85%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    20% {
+        background: linear-gradient(to top, #F2F2F2 80%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    25% {
+        background: linear-gradient(to top, #F2F2F2 75%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    30% {
+        background: linear-gradient(to top, #F2F2F2 70%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    35% {
+        background: linear-gradient(to top, #F2F2F2 65%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    40% {
+        background: linear-gradient(to top, #F2F2F2 60%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    45% {
+        background: linear-gradient(to top, #F2F2F2 55%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    50% {
+        background: linear-gradient(to top, #F2F2F2 50%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    55% {
+        background: linear-gradient(to top, #F2F2F2 45%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    60% {
+        background: linear-gradient(to top, #F2F2F2 40%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    65% {
+        background: linear-gradient(to top, #F2F2F2 35%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    70% {
+        background: linear-gradient(to top, #F2F2F2 30%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    75% {
+        background: linear-gradient(to top, #F2F2F2 25%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    80% {
+        background: linear-gradient(to top, #F2F2F2 20%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    85% {
+        background: linear-gradient(to top, #F2F2F2 15%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    90% {
+        background: linear-gradient(to top, #F2F2F2 10%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    95% {
+        background: linear-gradient(to top, #F2F2F2 5%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    100% {
+        background: linear-gradient(to top, #F2F2F2 0%, $secondary-color, $primary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-width: 0px;
+    }
+}

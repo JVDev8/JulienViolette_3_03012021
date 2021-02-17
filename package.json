@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./dart-sass/sass/main.scss:./resources/css/style.css"
+    "sass": "sass --watch ./dart-sass/sass/main.scss:./resources/css/style.css",
+    "prefix": "postcss ./resources/css/style.css --use autoprefixer -d ./resources/css/prefixed/"
   },
   "author": "Julien Violette",
-  "license": "ISC"
+  "license": "ISC",
+  "browserslist": "last 4 versions"
 }

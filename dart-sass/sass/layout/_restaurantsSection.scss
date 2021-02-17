@@ -1,0 +1,12 @@
+.restaurants-section {
+    @include padding-section;
+    background-color: $grey-background;
+    .restaurants-list {
+        @include grid;
+        grid-template: repeat(4, 1fr) / 1fr;
+        padding-bottom: 1rem;
+        @media (min-width: 900px) {
+            grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+        }
+    }
+}

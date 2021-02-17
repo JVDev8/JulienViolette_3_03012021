@@ -3,6 +3,7 @@ header {
     @include flex-center;
     justify-content: center;
     padding: 1rem;
+    background-color: $white-color;
     .arrow-wrapper {
         position: absolute;
         top: 0;
@@ -11,5 +12,9 @@ header {
         height: 100%;
         @include flex-center;
         justify-content: center;
+        .fa-arrow-left {
+            font-size: 1.25rem;
+            color: $black-color;
+        }
     }
 }

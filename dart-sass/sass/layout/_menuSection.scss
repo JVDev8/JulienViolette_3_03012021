@@ -1,0 +1,38 @@
+.menu-section {
+    z-index: 10;
+    margin-top: -2.5rem;
+    border-radius: 2.5rem 2.5rem 0 0;
+    padding: 2.5rem 1rem;
+    background-color: $grey-background;
+    .heading {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        &__title {
+            font-family: 'Shrikhand', display;
+            letter-spacing: 0.05rem;
+        }
+        .fa-heart {
+            padding-right: 1rem;
+        }
+    }
+    .menu__title {
+        position: relative;
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+        margin: 1rem 0rem;
+        text-transform: uppercase;
+        font-weight: 300;
+        font-size: 1.25rem;
+        display: inline-block;
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 2.5rem;
+            height: 0.2rem;
+            background-color: $third-color;
+        }
+    }
+}

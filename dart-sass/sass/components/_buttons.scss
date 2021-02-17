@@ -1,3 +1,31 @@
+.loading-page {
+    z-index: 200;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $white-color;
+    animation: loader-wrapper 3s forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__loader {
+        width: 5rem;
+        height: 5rem;
+        background-color: transparent;
+        border-top: 1rem solid $primary-color;
+        border-right: 1rem solid $secondary-color;
+        border-bottom: 1rem solid transparent;
+        border-left: 1rem solid $third-color;
+        border-radius: 50%;
+        animation: loader 2s forwards;
+    }
+}
+
 .btn {
     @include btn-style;
     &:hover {
@@ -19,20 +47,13 @@
         z-index: -1;
         transition: opacity 250ms ease-in-out;
     }
-}
-
-.explore-btn {
-    padding: 1rem 1.5rem;
-    margin: 1rem 0;
-}
-
-.command-btn {
-    padding: 1rem 2.5rem;
-}
-
-.fa-arrow-left {
-    font-size: 1.25rem;
-    color: $black-color;
+    &--explore {
+        padding: 1rem 1.5rem;
+        margin: 1rem 0;
+    }
+    &--command {
+        padding: 1rem 2.5rem;
+    }
 }
 
 .first-heart {
@@ -40,10 +61,10 @@
     opacity: 1;
     position: relative;
     font-size: 1.5rem;
-    color: black;
+    color: $black-color;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 0.05rem;
-    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-color: $black-color;
     &:hover {
         animation: gradient 1000ms linear forwards;
     }
@@ -63,8 +84,9 @@
     border-radius: 0 1rem 1rem 0;
     transform: scaleX(0);
     transform-origin: right;
+    cursor: pointer;
     i {
         font-size: 1.25rem;
-        color: white;
+        color: $white-color;
     }
 }

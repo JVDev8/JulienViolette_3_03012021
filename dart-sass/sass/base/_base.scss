@@ -11,8 +11,12 @@ html {
     font-size: 12px;
     scroll-behavior: smooth;
     width: 100vw;
+    overflow-y: auto;
     @media (min-width: 600px) {
         font-size: 16px;
+    }
+    @media (min-width: 2559px) {
+        font-size: 24px;
     }
 }
 
@@ -22,30 +26,27 @@ html {
 
 body {
     width: 100%;
+    background-color: $dark-background;
 }
 
-.loader {
-    opacity: 0;
-    z-index: 99;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: white;
-    animation: loader-wrapper 3s forwards;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &__wheel {
-        width: 5rem;
-        height: 5rem;
-        background-color: transparent;
-        border-top: 1rem solid $primary-color;
-        border-right: 1rem solid $secondary-color;
-        border-bottom: 1rem solid transparent;
-        border-left: 1rem solid $third-color;
-        border-radius: 50%;
-        animation: loader 2s forwards;
+#home-page {
+    animation: no-scroll 3s;
+}
+
+.main-page {
+    h2 {
+        margin-bottom: 1rem;
     }
+}
+
+.command-button {
+    min-height: 8rem;
+    @include flex-center;
+    justify-content: center;
+    padding-bottom: 1rem;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
 }
